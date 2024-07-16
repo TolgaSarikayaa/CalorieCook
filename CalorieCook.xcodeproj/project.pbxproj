@@ -12,6 +12,7 @@
 		147D12C02C467B8F004875CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 147D12BF2C467B8F004875CE /* Assets.xcassets */; };
 		147D12C32C467B8F004875CE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 147D12C22C467B8F004875CE /* Preview Assets.xcassets */; };
 		147D12CA2C467C31004875CE /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D12C92C467C31004875CE /* Model.swift */; };
+		147D12CC2C468258004875CE /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D12CB2C468258004875CE /* ProductService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		147D12BF2C467B8F004875CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		147D12C22C467B8F004875CE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		147D12C92C467C31004875CE /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		147D12CB2C468258004875CE /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				147D12BB2C467B8E004875CE /* CalorieCookApp.swift */,
 				147D12C92C467C31004875CE /* Model.swift */,
+				147D12CB2C468258004875CE /* ProductService.swift */,
 				147D12BD2C467B8E004875CE /* ContentView.swift */,
 				147D12BF2C467B8F004875CE /* Assets.xcassets */,
 				147D12C12C467B8F004875CE /* Preview Content */,
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				147D12CA2C467C31004875CE /* Model.swift in Sources */,
+				147D12CC2C468258004875CE /* ProductService.swift in Sources */,
 				147D12BE2C467B8E004875CE /* ContentView.swift in Sources */,
 				147D12BC2C467B8E004875CE /* CalorieCookApp.swift in Sources */,
 			);
