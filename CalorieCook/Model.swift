@@ -7,8 +7,11 @@
 
 import Foundation
 
+struct SearchResult: Codable {
+    let products: [Product]
+}
+
 struct Nutriments: Codable {
-    
     let carbohydrates: Double?
     let carbohydrates100g: Double?
     let carbohydratesUnit: String?
@@ -21,7 +24,6 @@ struct Nutriments: Codable {
     let sugars100g: Double?
     let sugarsUnit: String?
     let sugarsValue: Double?
-    
     
     enum CodingKeys: String, CodingKey {
         case carbohydrates
@@ -39,47 +41,16 @@ struct Nutriments: Codable {
     }
 }
 
-struct NutriScoreData: Codable {
-    let energy: Int?
-    let energyPoints: Int?
-    let energyValue: Int?
-    let sugarsPoints: Int?
-    let sugarsValue: Double?
+struct Product: Codable {
+    let code: String?
+    let productName: String?
+    let nutritionGrades: String?
+    let nutriments: Nutriments?
     
     enum CodingKeys: String, CodingKey {
-            case energy
-            case energyPoints = "energy_points"
-            case energyValue = "energy_value"
-            case sugarsPoints = "sugars_points"
-            case sugarsValue = "sugars_value"
-        }
-}
-
-struct Product: Codable {
-    let nutriments: Nutriments?
-    let nutriscoreData: NutriScoreData?
-    let nutritionGrades: String?
-    let productName: String?
-
-    enum CodingKeys: String, CodingKey {
-        case nutriments
-        case nutriscoreData = "nutriscore_data"
-        case nutritionGrades = "nutrition_grades"
-        case productName = "product_name"
-    }
-}
-
-struct FoodProduct: Codable {
-    let code: String?
-    let product: Product?
-    let status: Int?
-    let statusVerbose: String?
-
-    enum CodingKeys: String, CodingKey {
         case code
-        case product
-        case status
-        case statusVerbose = "status_verbose"
+        case productName = "product_name"
+        case nutritionGrades = "nutrition_grades"
+        case nutriments
     }
 }
-

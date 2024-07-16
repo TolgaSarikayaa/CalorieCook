@@ -9,26 +9,51 @@ import SwiftUI
 
 struct ContentView: View {
    @StateObject private var serviceModel = ProductService()
+    @State  private var searchText = ""
     
     var body: some View {
         VStack {
-            if let product = serviceModel.foodProduct?.product {
-                Text(product.productName ?? "No product Name")
-                if let nutriments = product.nutriments {
-                    Text("Carbohydrates: \(nutriments.carbohydrates ?? 0)g")
-                    Text("Energy: \(nutriments.energyKcal ?? 0)kcal")
-                    Text("Sugars: \(nutriments.sugars ?? 0)g")
-                }
-            } else {
-                Text("Loading...")
-            }
-        }
-        .onAppear {
-            serviceModel.fetchFoodProduct()
-        }
-    }
-}
+                   TextField("Enter product name", text: $searchText)
+                       .textFieldStyle(RoundedBorderTextFieldStyle())
+                       .padding()
 
-#Preview {
-    ContentView()
-}
+                   Button("Search") {
+                       serviceModel.searchFoodProduct(for: searchText)
+                   }
+                   .padding()
+
+                   if serviceModel.isLoading {
+                       ProgressView("Loading...")
+                   } else if let errorMessage = serviceModel.errorMessage {
+                       Text(errorMessage)
+                           .foregroundColor(.red)
+                   } else if let product = serviceModel.foodProduct {
+                       Text(product.productName ?? "No product name")
+                       if let nutriments = product.nutriments {
+                           if let carbohydrates = nutriments.carbohydrates {
+                               Text("Carbohydrates: \(carbohydrates)g")
+                           } else {
+                               Text("Carbohydrates: N/A")
+                           }
+                           if let energyKcal = nutriments.energyKcal {
+                               Text("Energy: \(energyKcal)kcal")
+                           } else {
+                               Text("Energy: N/A")
+                           }
+                           if let sugars = nutriments.sugars {
+                               Text("Sugars: \(sugars)g")
+                           } else {
+                               Text("Sugars: N/A")
+                           }
+                       }
+                   } else {
+                       Text("No product found")
+                   }
+               }
+               .padding()
+           }
+       }
+
+       #Preview {
+           ContentView()
+       }
