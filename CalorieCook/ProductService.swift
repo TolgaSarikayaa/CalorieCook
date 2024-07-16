@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ProductService {
+class ProductService : ObservableObject {
     
     @Published var foodProduct: FoodProduct?
     
