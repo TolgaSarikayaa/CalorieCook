@@ -40,7 +40,7 @@ class ProductService : ObservableObject {
     }
     
     func searchFoodProduct(for productName: String) {
-           let urlString = "https://world.openfoodfacts.net/api/v2/search?search_terms=\(productName)&fields=code,product_name,nutrition_grades,nutriments&json=1"
+           let urlString = "https://world.openfoodfacts.org/cgi/search.pl?search_terms=\(productName)&search_simple=1&json=1"
            guard let url = URL(string: urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "") else {
                print("Invalid URL")
                errorMessage = "Invalid URL"
